@@ -59,10 +59,10 @@ WSGI_APPLICATION = 'test_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['EXAMPLE_POSTGRESQL_1_ENV_POSTGRESQL_DATABASE'],
-        'USER': os.environ['EXAMPLE_POSTGRESQL_1_ENV_POSTGRESQL_USER'],
-        'PASSWORD': os.environ['EXAMPLE_POSTGRESQL_1_ENV_POSTGRESQL_PASSWORD'],
-        'HOST': os.environ['EXAMPLE_POSTGRESQL_1_PORT_5432_TCP_ADDR'],
+        'NAME': os.environ['DB_ENV_POSTGRESQL_DATABASE'],
+        'USER': os.environ['DB_ENV_POSTGRESQL_USER'],
+        'PASSWORD': os.environ['DB_ENV_POSTGRESQL_PASSWORD'],
+        'HOST': os.environ['DB_PORT_5432_TCP_ADDR'],
         'PORT': '5432',
     }
 }
@@ -86,3 +86,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'

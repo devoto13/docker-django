@@ -11,7 +11,7 @@ web:
     - APP_WORKERS=4
     - DJANGO_SETTINGS_MODULE=test_app.settings
   links:
-    - postgresql
+    - postgresql:db
 postgresql:
   image: devoto13/postgresql
   volumes:

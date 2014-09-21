@@ -1,11 +1,16 @@
 #!/bin/bash
 
+echo 'Collect static.'
 python /root/app/manage.py collectstatic --noinput
 
-while [ $(netstat -antp | grep ':5432') ]; do
+printf 'Waiting for DB to start.'
+while [ -z "$(nc $DB_PORT_5432_TCP_ADDR 5432 < /dev/null; echo $?)" ]; do
     sleep 1;
+    printf '.';
 done
+echo ' Done.'
 
-python /root/app/manage.py syncdb --migrate --noinput
+echo 'Run migrations.'
+python /root/app/manage.py migrate --noinput
 
 exec supervisord -c /etc/supervisor/conf.d/supervisord.conf
