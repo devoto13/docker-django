@@ -36,7 +36,7 @@ You pass with `-v` docker option. Don't forget to use absolute path here.
 
 Environment variable:
 
-Also you need to specify all environment variables required by [https://github.com/devoto13/docker-gunicorn](docker-gunicorn) image.
+Also you need to specify all environment variables required by [docker-gunicorn](https://github.com/devoto13/docker-gunicorn) image.
 
 * `DJANGO_SETTINGS_MODULE`: Django settings module.
 
