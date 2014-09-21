@@ -1,0 +1,25 @@
+web:
+  build: app
+  ports:
+    - "80:80"
+  volumes:
+    - volumes/log:/root/app/log
+    - volumes/media:/root/app/media
+  environment:
+    - APP_NAME=test_app
+    - APP_WSGI=test_app.wsgi:application
+    - APP_WORKERS=4
+    - DJANGO_SETTINGS_MODULE=test_app.settings
+  links:
+    - postgresql
+postgresql:
+  image: devoto13/postgresql
+  volumes:
+    - volumes/db/log:/var/log/postgresql
+    - volumes/db/lib:/var/lib/postgresql/9.3/main
+  environment:
+    - POSTGRESQL_DATABASE=mydb
+    - POSTGRESQL_USER=myuser
+    - POSTGRESQL_PASSWORD=mypass
+
+
