@@ -1,0 +1,11 @@
+#!/bin/bash
+
+python /root/app/manage.py collectstatic --noinput
+
+while [ $(netstat -antp | grep ':5432') ]; do
+    sleep 1;
+done
+
+python /root/app/manage.py syncdb --migrate --noinput
+
+exec supervisord -c /etc/supervisor/conf.d/supervisord.conf
