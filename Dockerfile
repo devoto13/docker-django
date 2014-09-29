@@ -12,4 +12,4 @@ RUN chmod +x /usr/local/bin/startup
 CMD ["/usr/local/bin/startup"]
 
 # Volumes
-VOLUME ['/root/app/media']
+VOLUME ["/root/app/media"]
